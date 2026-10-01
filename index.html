@@ -61,13 +61,12 @@
       }
 
       .brand-mark {
+        display: block;
         width: 55px;
         height: 55px;
         margin-bottom: 11px;
-        color: var(--ink);
       }
 
-      .eyebrow,
       .section-kicker,
       .contact-label {
         margin: 0;
@@ -274,6 +273,47 @@
         text-align: center;
       }
 
+      .qr-promo {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 8px;
+        margin-top: 24px;
+        text-align: center;
+      }
+
+      .qr-promo img {
+        display: block;
+        width: 128px;
+        height: auto;
+        border: 1px solid rgb(117 88 54 / 35%);
+        border-radius: 8px;
+        background: var(--paper-light);
+      }
+
+      .qr-promo p {
+        margin: 0;
+        color: var(--ink-soft);
+        font-family: var(--serif);
+        font-size: 0.9rem;
+      }
+
+      .qr-promo a {
+        color: var(--ink-soft);
+        font-size: 0.72rem;
+        text-underline-offset: 3px;
+      }
+
+      .qr-promo a:hover {
+        color: var(--accent);
+      }
+
+      .qr-promo a:focus-visible {
+        border-radius: 2px;
+        outline: 2px solid var(--accent);
+        outline-offset: 4px;
+      }
+
       @media (max-width: 640px) {
         .page {
           width: min(100% - 28px, 470px);
@@ -327,13 +367,31 @@
   <body>
     <main class="page">
       <header class="masthead">
-        <svg class="brand-mark" viewBox="0 0 64 64" fill="none" aria-hidden="true">
-          <path d="M32 53V27" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
-          <path d="M32 36 19 23M32 42 45 29M32 47 21 38" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
-          <path d="M32 27c-2-8-1-15 0-20 4 5 6 11 0 20ZM19 23c-7-4-11-9-14-14 7 1 13 4 14 14ZM45 29c4-7 9-10 14-13-1 7-5 12-14 13ZM21 38c-8-1-13-4-18-8 7-2 13-1 18 8Z" fill="currentColor" />
-          <path d="M32 53c-5 0-9 2-12 6h24c-3-4-7-6-12-6Z" fill="currentColor" />
+        <svg class="brand-mark" viewBox="0 0 345 349" aria-hidden="true">
+          <defs>
+            <filter id="leaf-color" color-interpolation-filters="sRGB">
+              <feColorMatrix values="
+                0 0 0 0 0.157
+                0 0 0 0 0.235
+                0 0 0 0 0.176
+                -0.213 -0.715 -0.072 0 1
+              " />
+            </filter>
+            <mask id="leaf-crop" maskUnits="userSpaceOnUse" x="0" y="0" width="345" height="349">
+              <rect width="345" height="349" fill="white" />
+              <rect x="170" y="0" width="5" height="8" fill="black" />
+              <path d="M168 169 C165 217 176 281 183 349 L197 349 C187 281 178 217 177 169 Z" fill="black" />
+            </mask>
+          </defs>
+          <image
+            href="assets/bud-botanics-leaf.webp"
+            width="345"
+            height="349"
+            preserveAspectRatio="none"
+            filter="url(#leaf-color)"
+            mask="url(#leaf-crop)"
+          />
         </svg>
-        <p class="eyebrow">A considered little menu</p>
         <h1>Bud Botanics</h1>
         <p class="tagline">Good things, grown close.</p>
         <span class="location">
@@ -391,6 +449,18 @@
           </a>
         </div>
         <p class="footer-note">Please enjoy responsibly.</p>
+        <div class="qr-promo">
+          <img
+            src="assets/bud-botanics-qr.svg"
+            alt="QR code for the Bud Botanics website, with the leaf logo in the center"
+            width="820"
+            height="820"
+          >
+          <p>Scan to visit online</p>
+          <a href="assets/bud-botanics-qr.svg" download="bud-botanics-qr.svg">
+            Download QR code
+          </a>
+        </div>
       </footer>
     </main>
   </body>
